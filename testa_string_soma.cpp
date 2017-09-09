@@ -1,3 +1,6 @@
-#define CATCH_CONFIG_MAIN //Pede para o Catch prover uma main()
-#include "catch.cpp"
+#include "catch.hpp"
+#include "string_soma.hpp"
 
+TEST_CASE("Calculadora simples de soma", "[soma]") {
+	REQUIRE( soma_string(0) == 0 );
+}
