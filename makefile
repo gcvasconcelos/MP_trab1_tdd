@@ -1,7 +1,8 @@
 TARGET = prog
 LIBS = -lm
 CC = g++
-CFLAGS = -g -Wall
+CFLAGS = -g -Wall 
+# -ftest-coverage -fprofile-arcs
 
 .PHONY: default all clean
 
@@ -21,4 +22,5 @@ $(TARGET): $(OBJECTS)
 
 clean:
 	-rm -f *.o
+	-rm -f *.gcno
 	-rm -f $(TARGET)
