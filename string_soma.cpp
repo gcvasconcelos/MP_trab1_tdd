@@ -8,8 +8,7 @@ bool ehNumero(char ch) {
 	return false;
 }
 int contaNumeros(const char * palavra, int n){
-	int j = 1;
-	int count = 0;
+	int j = 1, count = 0;
 	for (int i = 0; i < n; i++) {
 		if (ehNumero(palavra[i])) {
 			while (ehNumero(palavra[i+j])) {
@@ -50,11 +49,15 @@ bool validaDelimitador(const char * palavra, int n, char delimitador) {
 		if (!ehNumero(ch) && ch != delimitador && ch != '\n') return false;
 	}
 
-	bool vazia = contaDelimitadores(palavra, n, delimitador) + contaNumeros(palavra, n) == 0;
-	bool numDelimitadorValido = contaDelimitadores(palavra, n, delimitador) + 1 == contaNumeros(palavra, n);
+	bool vazia = contaDelimitadores(palavra, n, delimitador) + contaNumeros(palavra, n) == 0, numDelimitadorValido = contaDelimitadores(palavra, n, delimitador) + 1 == contaNumeros(palavra, n);
 
 	if (vazia || numDelimitadorValido)	return true;
 	return false;
+}
+bool validaNumero(const char * palavra, int n) {
+	for (int i = 0; i < n; i++)
+		if (palavra[i] == '-') return false;
+	return true;
 }
 
 
@@ -65,6 +68,7 @@ int soma_string(const char * string_entrada) {
 	if (!validaEnterFinal(string_entrada, tamanho)) return -1;
 	if (!validaAlgarismosLinha(string_entrada, tamanho)) return -1;
 	if (!validaDelimitador(string_entrada, tamanho, delimitador)) return -1;
+	if (!validaNumero(string_entrada, tamanho)) return -1;
 
 	return 0;
 }
