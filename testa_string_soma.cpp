@@ -35,5 +35,10 @@ TEST_CASE("Calculadora simples de soma", "[calculadora][soma]") {
 			REQUIRE(soma_string("-1\n") == -1);
 			REQUIRE(soma_string("1,-1\n") == -1);
 		}
+		SECTION("Numero eh menor ou igual a 1000"){
+			REQUIRE(soma_string("1001\n") == -1);
+			REQUIRE(soma_string("10000\n") == -1);
+			REQUIRE(soma_string("1000\n") != -1);
+		}
 	}
 }
