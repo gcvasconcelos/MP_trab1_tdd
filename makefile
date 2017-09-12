@@ -1,26 +1,25 @@
 TARGET = prog
-LIBS = -lm
 CC = g++
-CFLAGS = -g -Wall 
-# -ftest-coverage -fprofile-arcs
+LIBS = -lm
 
-.PHONY: default all clean
+ifeq ($(TESTE), 1)
+OBJECTS = obj/testa_config.o obj/string_soma.o obj/testa_string_soma.o
+HEADERS = headers/catch.hpp headers/string_soma.hpp
+FLAGS = -g -Wall -Wextra -Weffc++ 
+else
+OBJECTS = obj/string_soma.o obj/testa_soma_string_stdin.o
+HEADERS = 
+FLAGS = -g -Wall -Wextra -Weffc++ -ftest-coverage -fprofile-arcs
+endif
 
-default: $(TARGET)
-all: default
-
-OBJECTS = $(patsubst %.cpp, %.o, $(wildcard *.cpp))
-HEADERS = $(wildcard *.hpp)
-
-%.o: %.cpp $(HEADERS)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-.PRECIOUS: $(TARGET) $(OBJECTS)
+obj/%.o: %.cpp $(HEADERS)
+	$(CC) $(FLAGS) -c $< -o $@
 
 $(TARGET): $(OBJECTS)
-	$(CC) $(OBJECTS) -Wall $(LIBS) -o $@
+	$(CC) $(OBJECTS) $(FLAGS) $(LIBS) -o $@
 
+.PHONY: clean
 clean:
-	-rm -f *.o
-	-rm -f *.gcno
+	-rm -f obj/*.o
+	-rm -f obj/*.gcno
 	-rm -f $(TARGET)
