@@ -6,39 +6,39 @@
 #include <algorithm>
 #include <iostream>
 
-bool valida_enter_final(char *entrada, int tamanho);
-bool valida_numero(char *entrada, char *delimitador);
-bool valida_delimitador(char *entrada, char *delimitador);
-bool valida_numero_positivo(const char *string_entrada);
-bool valida_tamanho_numero(char *entrada, char *delimitador);
+
 bool valida_entrada(const char *string_entrada, char *delimitador);
-// char *retorna_delimitador(std::list<char *> delimitadores, char *delimitador_alvo) {
-
-// }
-
+int conta_numeros(const char *string_entrada, char *delimitador);
+char *retorna_delimitador(const char *string_entrada) {
+  char *entrada = strdup(string_entrada); 
+  unsigned int comeco, fim;
+  comeco = strspn(entrada, "//[");
+  fim = strcspn(entrada, "]");
+  if (comeco == 3 && fim != strlen(entrada)) {
+    char *delimitador = (char *) malloc(fim-comeco);
+    sscanf(entrada, "//[%s\n%*s", delimitador);
+    delimitador = strtok_r(delimitador, "]", &delimitador);
+    return delimitador;
+  } else if (comeco == 0 && fim == strlen(entrada)) {
+    if (strspn(entrada, "01234556789\n,") == strlen(entrada)) return strdup(",");
+  } 
+  return NULL;
+}
 
 int soma_string(const char *string_entrada) {
-  std::string str(string_entrada);
-  std::list<std::string> lista_delimitadores;
-  lista_delimitadores.push_back(",");
-
-  std::list<std::string>::iterator l_delimitador = std::find(lista_delimitadores.begin(), lista_delimitadores.end(), ",");
-  std::cout << *l_delimitador;
-  char delimitador[10];
-  strcpy(delimitador, (*l_delimitador).c_str());
-  if (!valida_entrada(string_entrada, delimitador)) return -1;
+  char *delimitador_atual;
+  if (!(delimitador_atual = retorna_delimitador(string_entrada))) return -1;
+  if (!valida_entrada(string_entrada, delimitador_atual)) return -1;
   return 0;
 }
 
 bool valida_enter_final(const char *string_entrada, int tamanho) {
-  char entrada[100]; 
-  strcpy(entrada, string_entrada);
+  char *entrada = strdup(string_entrada); 
   if (entrada[tamanho-1] != '\n') return false; //enter no final
   return true;
 }
 int conta_delimitadores(const char *string_entrada, char *delimitador) {
-  char entrada[100]; 
-  strcpy(entrada, string_entrada);
+  char *entrada = strdup(string_entrada); 
   char *temp;
   int delimitadores = 0;
   temp = strpbrk(entrada, delimitador);
@@ -49,20 +49,16 @@ int conta_delimitadores(const char *string_entrada, char *delimitador) {
   return delimitadores;
 }
 int conta_numeros(const char *string_entrada, char *delimitador) {
-  char entrada[100]; 
-  strcpy(entrada, string_entrada);
+  char *entrada = strdup(string_entrada); 
   int numeros = 0;
   char *temp = entrada;
   if (entrada[strlen(entrada)-1] == '\n')
     if (entrada[strlen(entrada)-2] == ',') --numeros;
-  while (strtok_r(temp, delimitador, &temp)) {
-    ++numeros;
-  }
+  while (strtok_r(temp, delimitador, &temp)) ++numeros;
   return numeros;
 }
 bool valida_delimitador(const char *string_entrada, char *delimitador) {
-  char entrada[100]; 
-  strcpy(entrada, string_entrada);  
+  char *entrada = strdup(string_entrada); 
   if (strpbrk(entrada, delimitador)) {  //se nao existem delimitadores na entrada
     int delimitadores = conta_delimitadores(entrada, delimitador);
     int numeros = conta_numeros(entrada, delimitador);
@@ -71,9 +67,8 @@ bool valida_delimitador(const char *string_entrada, char *delimitador) {
   return true;
 }
 bool valida_numero(const char *string_entrada, char *delimitador) {
-  char entrada[100];
+  char *entrada = strdup(string_entrada);
   int numero = 0;
-  strcpy(entrada, string_entrada);
   char *linha = entrada;
   char *temp;
   while ((temp = strtok_r(linha, "\n", &linha))) {
@@ -82,15 +77,13 @@ bool valida_numero(const char *string_entrada, char *delimitador) {
   }
   return true;
 }
-bool valida_numero_positivo(const char *string_entrada) {
-  char entrada[100]; 
-  strcpy(entrada, string_entrada);
-  if (strpbrk(entrada, "-")) return false;
+bool valida_numero_positivo(const char *string_entrada, char * delimitador) {
+  char *entrada = strdup(string_entrada); 
+  if (strpbrk(entrada, "-") && strcmp(delimitador, "-")) return false;
   return true;
 }
 bool valida_tamanho_numero(const char *string_entrada, char *delimitador) {
-  char entrada[100]; 
-  strcpy(entrada, string_entrada);
+  char *entrada = strdup(string_entrada); 
   char *temp = entrada;
   char *buff;
   while ((buff = strtok_r(temp, delimitador, &temp))) {
@@ -104,7 +97,7 @@ bool valida_entrada(const char *string_entrada, char *delimitador) {
   if (!valida_enter_final(string_entrada, tamanho)) return false; //check
   if (!valida_numero(string_entrada, delimitador)) return false;
   if (!valida_delimitador(string_entrada, delimitador)) return false;
-  if (!valida_numero_positivo(string_entrada)) return false;
+  if (!valida_numero_positivo(string_entrada, delimitador)) return false;
   if (!valida_tamanho_numero(string_entrada, delimitador)) return false;
   return true;
 }
