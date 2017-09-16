@@ -42,13 +42,13 @@ TEST_CASE("Calculadora simples de soma", "[calculadora][soma]") {
 			CHECK(soma_string("1000\n") != -1);
 		}
 	}
-  // SECTION("Delimitador variavel") {
-  //   CHECK(soma_string("1@1\n") == -1);
-  //   CHECK(soma_string("[@]1@1\n") == -1);
-  //   CHECK(soma_string("[@]\n1@1\n") == -1);
-  //   CHECK(soma_string("/[@]\n1@1\n") == -1);
-  //   CHECK(soma_string("//[@]\n1@1\n") != -1);
-  //   CHECK(soma_string("//[@@@]\n1@@@1\n") != -1);
-  //   CHECK(soma_string("//[-]\n1-1\n") != -1);
-  // }
+  SECTION("Delimitador variavel") {
+    CHECK(soma_string("1@1\n") == -1);
+    CHECK(soma_string("[@]1@1\n") == -1);
+    CHECK(soma_string("[@]\n1@1\n") == -1);
+    CHECK(soma_string("/[@]\n1@1\n") == -1);
+    CHECK(soma_string("//[@]\n1@1\n") != -1);
+    CHECK(soma_string("//[@@@]\n1@@@1\n") != -1);
+    CHECK(soma_string("//[-]\n1-1\n") != -1);
+  }
 }

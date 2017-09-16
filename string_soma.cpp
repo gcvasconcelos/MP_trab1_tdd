@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stack>
+#include <string>
+#include <list>
+#include <algorithm>
+#include <iostream>
 
 bool valida_enter_final(char *entrada, int tamanho);
 bool valida_numero(char *entrada, char *delimitador);
@@ -9,11 +12,22 @@ bool valida_delimitador(char *entrada, char *delimitador);
 bool valida_numero_positivo(const char *string_entrada);
 bool valida_tamanho_numero(char *entrada, char *delimitador);
 bool valida_entrada(const char *string_entrada, char *delimitador);
+// char *retorna_delimitador(std::list<char *> delimitadores, char *delimitador_alvo) {
+
+// }
+
 
 int soma_string(const char *string_entrada) {
-  char delimitador[] = ",";
-  if (!valida_entrada(string_entrada, delimitador)) return -1; 
-	return 0;
+  std::string str(string_entrada);
+  std::list<std::string> lista_delimitadores;
+  lista_delimitadores.push_back(",");
+
+  std::list<std::string>::iterator l_delimitador = std::find(lista_delimitadores.begin(), lista_delimitadores.end(), ",");
+  std::cout << *l_delimitador;
+  char delimitador[10];
+  strcpy(delimitador, (*l_delimitador).c_str());
+  if (!valida_entrada(string_entrada, delimitador)) return -1;
+  return 0;
 }
 
 bool valida_enter_final(const char *string_entrada, int tamanho) {
