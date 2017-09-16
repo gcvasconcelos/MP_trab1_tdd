@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <stack>
 
@@ -52,6 +53,16 @@ bool valida_numero_positivo(const char *string_entrada) {
   if (strpbrk(entrada, "-")) return false;
   return true;
 }
+bool valida_tamanho_numero(char *entrada, char *delimitador) {
+  char *temp;
+  temp = strtok(entrada, strcat(delimitador, "\n"));
+  while (temp != NULL) {
+    if (atoi(temp) > 1000) return false;
+    temp = strtok(NULL, delimitador);
+  }
+  return true;
+}
+
 int soma_string(const char *string_entrada) {
   char delimitador[] = ",";
   char entrada[100]; 
@@ -61,6 +72,7 @@ int soma_string(const char *string_entrada) {
   if (!valida_numero(entrada, delimitador)) return -1;
   if (!valida_delimitador(entrada, delimitador)) return -1;
   if (!valida_numero_positivo(string_entrada)) return -1;
+  if (!valida_tamanho_numero(entrada, delimitador)) return -1;
 
 	return 0;
 }

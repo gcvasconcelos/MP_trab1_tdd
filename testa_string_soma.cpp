@@ -14,7 +14,7 @@ TEST_CASE("Calculadora simples de soma", "[calculadora][soma]") {
 			REQUIRE(soma_string("1,1,1\n") != -1);
 			REQUIRE(soma_string("\n1,1\n") != -1);
       REQUIRE(soma_string("\n\n1,1\n") != -1);
-			// REQUIRE(soma_string("1,\n1,1\n,1,1,1\n") != -1);
+			REQUIRE(soma_string("1,\n1,1\n,1,1,1\n") != -1);
 		}
 		SECTION("Numero antes e depois de todo delimitador") {
 			REQUIRE(soma_string("1,\n") == -1);
@@ -27,18 +27,18 @@ TEST_CASE("Calculadora simples de soma", "[calculadora][soma]") {
 			}
 		}
 		SECTION("Numero eh positivo") {
-			CHECK(soma_string("-1\n") == -1);
-			CHECK(soma_string("1,-1\n") == -1);
+			REQUIRE(soma_string("-1\n") == -1);
+			REQUIRE(soma_string("1,-1\n") == -1);
 		}
-  //   SECTION("Numero pode ter mais de um algarismo"){
-  //     CHECK(soma_string("11\n") != -1);
-  //     CHECK(soma_string("111\n") != -1);
-  //     CHECK(soma_string("1000\n") != -1); 
-  //   }
-		// SECTION("Numero eh menor ou igual a 1000"){
-		// 	CHECK(soma_string("1001\n") == -1);
-		// 	CHECK(soma_string("10000\n") == -1);
-		// 	CHECK(soma_string("1000\n") != -1);
-		// }
+    SECTION("Numero pode ter mais de um algarismo"){
+      REQUIRE(soma_string("11\n") != -1);
+      REQUIRE(soma_string("111\n") != -1);
+      REQUIRE(soma_string("1000\n") != -1); 
+    }
+		SECTION("Numero eh menor ou igual a 1000"){
+			CHECK(soma_string("1001\n") == -1);
+			CHECK(soma_string("10000\n") == -1);
+			CHECK(soma_string("1000\n") != -1);
+		}
 	}
 }
