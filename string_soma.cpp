@@ -3,22 +3,58 @@
 #include <string.h>
 #include <stack>
 
-bool valida_enter_final(char *entrada, int tamanho){
-	if (entrada[tamanho-1] != '\n') return false; //enter no final
-	return true;
+bool valida_enter_final(char *entrada, int tamanho);
+bool valida_numero(char *entrada, char *delimitador);
+bool valida_delimitador(char *entrada, char *delimitador);
+bool valida_numero_positivo(const char *string_entrada);
+bool valida_tamanho_numero(char *entrada, char *delimitador);
+bool valida_entrada(const char *string_entrada, char *delimitador);
+
+int soma_string(const char *string_entrada) {
+  char delimitador[] = ",";
+  if (!valida_entrada(string_entrada, delimitador)) return -1; 
+	return 0;
+}
+
+bool valida_enter_final(char *entrada, int tamanho) {
+  if (entrada[tamanho-1] != '\n') return false; //enter no final
+  return true;
+}
+int contaDelimitadores(char *entrada, char *delimitador) {
+  char *temp;
+  int delimitadores = 0;
+  temp = strpbrk(entrada, delimitador);
+  while (temp != NULL){
+    ++delimitadores;
+    temp = strpbrk(temp+1, delimitador);
+  }
+  return delimitadores;
+}
+int contaNumeros(char *entrada, char *delimitador) {
+  char *temp;
+  int numeros = 0;
+  temp = strtok(entrada, delimitador);
+    while (temp != NULL) {
+      ++numeros;
+      temp = strtok(NULL, delimitador);
+    }
+  return numeros;
 }
 bool valida_numero(char *entrada, char *delimitador) {
+  printf("\n###entrada-->%s<--\n", entrada);
   char *linha, *cols;
   int count;
   linha = strtok(entrada, "\n");
   while (linha != NULL) {
+    printf("hue\n");
     count = 0;
     cols = strpbrk(linha, delimitador);
-    ++count;
+    printf("###cols-->%s<--\n", cols);
     while (cols != NULL) {
       ++count;
       cols = strpbrk(cols+1, delimitador);  //proximo numero
     }
+    printf("###count-->%i<--\n", count);
     if (count > 3) return false;
     linha = strtok(NULL, "\n");  //proxima linha
   }
@@ -26,18 +62,8 @@ bool valida_numero(char *entrada, char *delimitador) {
 }
 bool valida_delimitador(char *entrada, char *delimitador) {
   if (strpbrk(entrada, delimitador)) {  //se nao existem delimitadores na entrada
-    int numeros = 0, delimitadores;
-    char *temp;
-    temp = strpbrk(entrada, delimitador);
-    while (temp != NULL){
-      ++delimitadores;
-      temp = strpbrk(temp+1, delimitador);
-    }
-    temp = strtok(entrada, delimitador);
-    while (temp != NULL) {
-      ++numeros;
-      temp = strtok(NULL, delimitador);
-    }
+    int delimitadores = contaDelimitadores(entrada, delimitador);
+    int numeros = contaNumeros(entrada, delimitador);
     if (!(delimitadores+1 == numeros)) return false;
   }
   return true;
@@ -62,17 +88,14 @@ bool valida_tamanho_numero(char *entrada, char *delimitador) {
   }
   return true;
 }
-
-int soma_string(const char *string_entrada) {
-  char delimitador[] = ",";
+bool valida_entrada(const char *string_entrada, char *delimitador) {
   char entrada[100]; 
   int tamanho = strlen(string_entrada);
   strcpy(entrada, string_entrada);
-	if (!valida_enter_final(entrada, tamanho)) return -1; //check
-  if (!valida_numero(entrada, delimitador)) return -1;
-  if (!valida_delimitador(entrada, delimitador)) return -1;
-  if (!valida_numero_positivo(string_entrada)) return -1;
-  if (!valida_tamanho_numero(entrada, delimitador)) return -1;
-
-	return 0;
+  if (!valida_enter_final(entrada, tamanho)) return false; //check
+  if (!valida_numero(entrada, delimitador)) return false;
+  if (!valida_delimitador(entrada, delimitador)) return false;
+  if (!valida_numero_positivo(string_entrada)) return false;
+  if (!valida_tamanho_numero(entrada, delimitador)) return false;
+  return true;
 }

@@ -1,12 +1,13 @@
-TARGET = prog
 CC = g++
 LIBS = -lm
 
 ifeq ($(TESTE), 1)
+TARGET = test
 OBJECTS = obj/testa_config.o obj/string_soma.o obj/testa_string_soma.o
 HEADERS = headers/catch.hpp headers/string_soma.hpp
 FLAGS = -g -Wall -Wextra -Weffc++ -ftest-coverage -fprofile-arcs
 else
+TARGET = testa_soma_string_stdin
 OBJECTS = obj/string_soma.o obj/testa_soma_string_stdin.o
 HEADERS = 
 FLAGS = -g -Wall -Wextra -Weffc++ 

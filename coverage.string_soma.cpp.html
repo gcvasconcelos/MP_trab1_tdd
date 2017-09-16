@@ -261,12 +261,12 @@
           </tr>
           <tr>
             <td class="headerName">Date:</td>
-            <td class="headerValue">2017-09-12</td>
+            <td class="headerValue">2017-09-15</td>
             <td></td>
             <td class="headerName">Branches:</td>
-            <td class="headerTableEntry">56</td>
-            <td class="headerTableEntry">66</td>
-            <td class="headerTableEntry" style="background-color:#FFFF55">84.8 %</td>
+            <td class="headerTableEntry">32</td>
+            <td class="headerTableEntry">32</td>
+            <td class="headerTableEntry" style="background-color:LightGreen">100.0 %</td>
           </tr>
         </table>
       </td>
@@ -293,43 +293,43 @@
     <tr>
     <td align="right" class="lineno"><pre>2</pre></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#include &lt;string.h&gt;</pre></td>
+    <td align="left" class="src "><pre>#include &lt;stdlib.h&gt;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>3</pre></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#include &lt;stack&gt;</pre></td>
+    <td align="left" class="src "><pre>#include &lt;string.h&gt;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>4</pre></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
+    <td align="left" class="src "><pre>#include &lt;stack&gt;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>5</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>305</pre></td>
-    <td align="left" class="src coveredLine"><pre>bool eh_numero(char ch) {</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>6</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>305</pre></td>
-    <td align="left" class="src coveredLine"><pre>	if (ch == '0' || ch == '1' || ch == '2' || ch == '3' || ch == '4' || ch == '5' || ch == '6' || ch == '7' || ch == '8' || ch == '9')</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>44</pre></td>
+    <td align="left" class="src coveredLine"><pre>bool valida_enter_final(char *entrada, int tamanho){</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>7</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>119</pre></td>
-    <td align="left" class="src coveredLine"><pre>		return true;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>44</pre></td>
+    <td align="left" class="src coveredLine"><pre>	if (entrada[tamanho-1] != '\n') return false; //enter no final</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>8</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>186</pre></td>
-    <td align="left" class="src coveredLine"><pre>	return false;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>42</pre></td>
+    <td align="left" class="src coveredLine"><pre>	return true;</pre></td>
     </tr>
 
     <tr>
@@ -340,206 +340,206 @@
 
     <tr>
     <td align="right" class="lineno"><pre>10</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>28</pre></td>
-    <td align="left" class="src coveredLine"><pre>int conta_numeros(const char *entrada, int tamanho){</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>42</pre></td>
+    <td align="left" class="src coveredLine"><pre>bool valida_numero(char *entrada, char *delimitador) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>11</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>28</pre></td>
-    <td align="left" class="src coveredLine"><pre>	int j = 1, count = 0;</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>  char *linha, *cols;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>12</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>144</pre></td>
-    <td align="left" class="src coveredLine"><pre>	for (int i = 0; i &lt; tamanho; ++i) {</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>  int count;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>13</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>116</pre></td>
-    <td align="left" class="src coveredLine"><pre>		if (eh_numero(entrada[i])) {</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>42</pre></td>
+    <td align="left" class="src coveredLine"><pre>  linha = strtok(entrada, "\n");</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>14</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>52</pre></td>
-    <td align="left" class="src coveredLine"><pre>			while (eh_numero(entrada[i+j])) {</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>130</pre></td>
+    <td align="left" class="src coveredLine"><pre>  while (linha != NULL) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>15</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>6</pre></td>
-    <td align="left" class="src coveredLine"><pre>				++i;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>48</pre></td>
+    <td align="left" class="src coveredLine"><pre>    count = 0;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>16</pre></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>			}</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>48</pre></td>
+    <td align="left" class="src coveredLine"><pre>    cols = strpbrk(linha, delimitador);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>17</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>40</pre></td>
-    <td align="left" class="src coveredLine"><pre>			++count;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>48</pre></td>
+    <td align="left" class="src coveredLine"><pre>    ++count;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>18</pre></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>		}</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>124</pre></td>
+    <td align="left" class="src coveredLine"><pre>    while (cols != NULL) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>19</pre></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>	}</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>38</pre></td>
+    <td align="left" class="src coveredLine"><pre>      ++count;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>20</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>28</pre></td>
-    <td align="left" class="src coveredLine"><pre>	return count;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>38</pre></td>
+    <td align="left" class="src coveredLine"><pre>      cols = strpbrk(cols+1, delimitador);  //proximo numero</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>21</pre></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}</pre></td>
+    <td align="left" class="src "><pre>    }</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>22</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>28</pre></td>
-    <td align="left" class="src coveredLine"><pre>int conta_delimitadores(const char *entrada, int tamanho, char delimitador) {</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>48</pre></td>
+    <td align="left" class="src coveredLine"><pre>    if (count &gt; 3) return false;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>23</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>28</pre></td>
-    <td align="left" class="src coveredLine"><pre>	int count = 0;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>44</pre></td>
+    <td align="left" class="src coveredLine"><pre>    linha = strtok(NULL, "\n");  //proxima linha</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>24</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>150</pre></td>
-    <td align="left" class="src coveredLine"><pre>	for (int i = 0; i &lt; tamanho; ++i) {</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>  }</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>25</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>122</pre></td>
-    <td align="left" class="src coveredLine"><pre>		if (entrada[i] == delimitador) ++count;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>38</pre></td>
+    <td align="left" class="src coveredLine"><pre>  return true;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>26</pre></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>	}</pre></td>
+    <td align="left" class="src "><pre>}</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>27</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>28</pre></td>
-    <td align="left" class="src coveredLine"><pre>	return count;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>38</pre></td>
+    <td align="left" class="src coveredLine"><pre>bool valida_delimitador(char *entrada, char *delimitador) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>28</pre></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>38</pre></td>
+    <td align="left" class="src coveredLine"><pre>  if (strpbrk(entrada, delimitador)) {  //se nao existem delimitadores na entrada</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>29</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>23</pre></td>
-    <td align="left" class="src coveredLine"><pre>bool valida_enter_final(const char *entrada, int tamanho){</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>16</pre></td>
+    <td align="left" class="src coveredLine"><pre>    int numeros = 0, delimitadores;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>30</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>23</pre></td>
-    <td align="left" class="src coveredLine"><pre>	if (entrada[tamanho-1] != '\n') return false; //enter no final</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>    char *temp;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>31</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>22</pre></td>
-    <td align="left" class="src coveredLine"><pre>	return true;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>16</pre></td>
+    <td align="left" class="src coveredLine"><pre>    temp = strpbrk(entrada, delimitador);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>32</pre></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>56</pre></td>
+    <td align="left" class="src coveredLine"><pre>    while (temp != NULL){</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>33</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>22</pre></td>
-    <td align="left" class="src coveredLine"><pre>bool valida_algarismos_linha(const char *entrada, int tamanho) {</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>20</pre></td>
+    <td align="left" class="src coveredLine"><pre>      ++delimitadores;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>34</pre></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>	int count;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>20</pre></td>
+    <td align="left" class="src coveredLine"><pre>      temp = strpbrk(temp+1, delimitador);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>35</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>53</pre></td>
-    <td align="left" class="src coveredLine"><pre>	for (int i = 0; i &lt; tamanho; ++i) {</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>    }</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>36</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>35</pre></td>
-    <td align="left" class="src coveredLine"><pre>		count = 0;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>16</pre></td>
+    <td align="left" class="src coveredLine"><pre>    temp = strtok(entrada, delimitador);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>37</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>183</pre></td>
-    <td align="left" class="src coveredLine"><pre>		while (entrada[i] != '\n') {</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>68</pre></td>
+    <td align="left" class="src coveredLine"><pre>    while (temp != NULL) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>38</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>74</pre></td>
-    <td align="left" class="src coveredLine"><pre>			if (eh_numero(entrada[i])) ++count;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>26</pre></td>
+    <td align="left" class="src coveredLine"><pre>      ++numeros;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>39</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>74</pre></td>
-    <td align="left" class="src coveredLine"><pre>			++i;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>26</pre></td>
+    <td align="left" class="src coveredLine"><pre>      temp = strtok(NULL, delimitador);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>40</pre></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>		}</pre></td>
+    <td align="left" class="src "><pre>    }</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>41</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>35</pre></td>
-    <td align="left" class="src coveredLine"><pre>		if (count &gt; 3) return false;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>16</pre></td>
+    <td align="left" class="src coveredLine"><pre>    if (!(delimitadores+1 == numeros)) return false;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>42</pre></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>	}</pre></td>
+    <td align="left" class="src "><pre>  }</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>43</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>18</pre></td>
-    <td align="left" class="src coveredLine"><pre>	return true;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>30</pre></td>
+    <td align="left" class="src coveredLine"><pre>  return true;</pre></td>
     </tr>
 
     <tr>
@@ -550,186 +550,204 @@
 
     <tr>
     <td align="right" class="lineno"><pre>45</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>18</pre></td>
-    <td align="left" class="src coveredLine"><pre>bool valida_delimitador(const char *entrada, int tamanho, char delimitador) {</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>// bool valida_numero_positivo(char *entrada) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>46</pre></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>	char ch;</pre></td>
+    <td align="left" class="src "><pre>//   printf("\nENTRADAFUNC-&gt;%s&lt;-\n", entrada);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>47</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>83</pre></td>
-    <td align="left" class="src coveredLine"><pre>	for (int i = 0; i &lt; tamanho; ++i) {</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>//   if (strpbrk(entrada, "-")) return false;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>48</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>69</pre></td>
-    <td align="left" class="src coveredLine"><pre>		ch = entrada[i];</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>//   return true;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>49</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>69</pre></td>
-    <td align="left" class="src coveredLine"><pre>		if (!eh_numero(ch) &amp;&amp; ch != delimitador &amp;&amp; ch != '\n') return false;</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>// }</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>50</pre></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>	}</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>30</pre></td>
+    <td align="left" class="src coveredLine"><pre>bool valida_numero_positivo(const char *string_entrada) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>51</pre></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
+    <td align="left" class="src "><pre>  char entrada[100];</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>52</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>14</pre></td>
-    <td align="left" class="src coveredLine"><pre>	bool vazia = conta_delimitadores(entrada, tamanho, delimitador) + conta_numeros(entrada, tamanho) == 0;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>30</pre></td>
+    <td align="left" class="src coveredLine"><pre>  strcpy(entrada, string_entrada);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>53</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>14</pre></td>
-    <td align="left" class="src coveredLine"><pre>	bool num_delimitador_valido = conta_delimitadores(entrada, tamanho, delimitador) + 1 == conta_numeros(entrada, tamanho);</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>30</pre></td>
+    <td align="left" class="src coveredLine"><pre>  if (strpbrk(entrada, "-")) return false;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>54</pre></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
+    <td align="right" class="linecount coveredLine"><pre>26</pre></td>
+    <td align="left" class="src coveredLine"><pre>  return true;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>55</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>14</pre></td>
-    <td align="left" class="src coveredLine"><pre>	if (vazia || num_delimitador_valido)	return true;</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>}</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>56</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>4</pre></td>
-    <td align="left" class="src coveredLine"><pre>	return false;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>26</pre></td>
+    <td align="left" class="src coveredLine"><pre>bool valida_tamanho_numero(char *entrada, char *delimitador) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>57</pre></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}</pre></td>
+    <td align="left" class="src "><pre>  char *temp;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>58</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>10</pre></td>
-    <td align="left" class="src coveredLine"><pre>bool valida_numero(const char *entrada, int tamanho) {</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>26</pre></td>
+    <td align="left" class="src coveredLine"><pre>  temp = strtok(entrada, strcat(delimitador, "\n"));</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>59</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>58</pre></td>
-    <td align="left" class="src coveredLine"><pre>	for (int i = 0; i &lt; tamanho; ++i)</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>66</pre></td>
+    <td align="left" class="src coveredLine"><pre>  while (temp != NULL) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>60</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>48</pre></td>
-    <td align="left" class="src coveredLine"><pre>		if (entrada[i] == '-') return false;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>24</pre></td>
+    <td align="left" class="src coveredLine"><pre>    if (atoi(temp) &gt; 1000) return false;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>61</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>10</pre></td>
-    <td align="left" class="src coveredLine"><pre>	return true;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>20</pre></td>
+    <td align="left" class="src coveredLine"><pre>    temp = strtok(NULL, delimitador);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>62</pre></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}</pre></td>
+    <td align="left" class="src "><pre>  }</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>63</pre></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
+    <td align="right" class="linecount coveredLine"><pre>22</pre></td>
+    <td align="left" class="src coveredLine"><pre>  return true;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>64</pre></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
+    <td align="left" class="src "><pre>}</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>65</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>23</pre></td>
-    <td align="left" class="src coveredLine"><pre>int soma_string(const char *string_entrada) {</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>66</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>23</pre></td>
-    <td align="left" class="src coveredLine"><pre>	char delimitador = ',';</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>44</pre></td>
+    <td align="left" class="src coveredLine"><pre>int soma_string(const char *string_entrada) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>67</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>23</pre></td>
-    <td align="left" class="src coveredLine"><pre>	int tamanho = strlen(string_entrada);</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>44</pre></td>
+    <td align="left" class="src coveredLine"><pre>  char delimitador[] = ",";</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>68</pre></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
+    <td align="left" class="src "><pre>  char entrada[100];</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>69</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>23</pre></td>
-    <td align="left" class="src coveredLine"><pre>	if (!valida_enter_final(string_entrada, tamanho)) return -1;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>44</pre></td>
+    <td align="left" class="src coveredLine"><pre>  int tamanho = strlen(string_entrada);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>70</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>22</pre></td>
-    <td align="left" class="src coveredLine"><pre>	if (!valida_algarismos_linha(string_entrada, tamanho)) return -1;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>44</pre></td>
+    <td align="left" class="src coveredLine"><pre>  strcpy(entrada, string_entrada);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>71</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>18</pre></td>
-    <td align="left" class="src coveredLine"><pre>	if (!valida_delimitador(string_entrada, tamanho, delimitador)) return -1;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>44</pre></td>
+    <td align="left" class="src coveredLine"><pre>	if (!valida_enter_final(entrada, tamanho)) return -1; //check</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>72</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>10</pre></td>
-    <td align="left" class="src coveredLine"><pre>	if (!valida_numero(string_entrada, tamanho)) return -1;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>42</pre></td>
+    <td align="left" class="src coveredLine"><pre>  if (!valida_numero(entrada, delimitador)) return -1;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>73</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>38</pre></td>
+    <td align="left" class="src coveredLine"><pre>  if (!valida_delimitador(entrada, delimitador)) return -1;</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>74</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>30</pre></td>
+    <td align="left" class="src coveredLine"><pre>  if (!valida_numero_positivo(string_entrada)) return -1;</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>75</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>26</pre></td>
+    <td align="left" class="src coveredLine"><pre>  if (!valida_tamanho_numero(entrada, delimitador)) return -1;</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>76</pre></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>74</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>10</pre></td>
+    <td align="right" class="lineno"><pre>77</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>22</pre></td>
     <td align="left" class="src coveredLine"><pre>	return 0;</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>75</pre></td>
+    <td align="right" class="lineno"><pre>78</pre></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>}</pre></td>
     </tr>
