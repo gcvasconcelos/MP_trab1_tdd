@@ -255,18 +255,18 @@
             <td class="headerValue">testa_string_soma.cpp</td>
             <td></td>
             <td class="headerName">Lines:</td>
-            <td class="headerTableEntry">32</td>
-            <td class="headerTableEntry">32</td>
+            <td class="headerTableEntry">46</td>
+            <td class="headerTableEntry">46</td>
             <td class="headerTableEntry" style="background-color:LightGreen">100.0 %</td>
           </tr>
           <tr>
             <td class="headerName">Date:</td>
-            <td class="headerValue">2017-09-15</td>
+            <td class="headerValue">2017-09-16</td>
             <td></td>
             <td class="headerName">Branches:</td>
-            <td class="headerTableEntry">337</td>
-            <td class="headerTableEntry">838</td>
-            <td class="headerTableEntry" style="background-color:LightPink">40.2 %</td>
+            <td class="headerTableEntry">488</td>
+            <td class="headerTableEntry">1238</td>
+            <td class="headerTableEntry" style="background-color:LightPink">39.4 %</td>
           </tr>
         </table>
       </td>
@@ -304,86 +304,86 @@
 
     <tr>
     <td align="right" class="lineno"><pre>4</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>35</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>8</pre></td>
     <td align="left" class="src coveredLine"><pre>TEST_CASE("Calculadora simples de soma", "[calculadora][soma]") {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>5</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>60</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>14</pre></td>
     <td align="left" class="src coveredLine"><pre>	SECTION("Formatacao da entrada") {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>6</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>60</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>8</pre></td>
     <td align="left" class="src coveredLine"><pre>		SECTION("\\n no final"){</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>7</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
-    <td align="left" class="src coveredLine"><pre>			REQUIRE(soma_string("") == -1);</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>			CHECK(soma_string("") == -1);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>8</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
-    <td align="left" class="src coveredLine"><pre>			REQUIRE(soma_string("\n") != -1);</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>9</pre></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>		}</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>10</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>60</pre></td>
+    <td align="right" class="lineno"><pre>9</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>8</pre></td>
     <td align="left" class="src coveredLine"><pre>		SECTION("Tem de 0 a 3 numeros por linha") {</pre></td>
     </tr>
 
     <tr>
+    <td align="right" class="lineno"><pre>10</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>			CHECK(soma_string("1,1,1,1\n") == -1);</pre></td>
+    </tr>
+
+    <tr>
     <td align="right" class="lineno"><pre>11</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
-    <td align="left" class="src coveredLine"><pre>			REQUIRE(soma_string("1,1,1,1\n") == -1);</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>			CHECK(soma_string("1,\n1,1,1,1\n") == -1);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>12</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
-    <td align="left" class="src coveredLine"><pre>			REQUIRE(soma_string("1,\n1,1,1,1\n") == -1);</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>		}</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>13</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
-    <td align="left" class="src coveredLine"><pre>			REQUIRE(soma_string("1\n") != -1);</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>8</pre></td>
+    <td align="left" class="src coveredLine"><pre>		SECTION("Numero antes e depois de todo delimitador") {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>14</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
-    <td align="left" class="src coveredLine"><pre>			REQUIRE(soma_string("1,1,1\n") != -1);</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>			REQUIRE(soma_string("1,\n") == -1);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>15</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
-    <td align="left" class="src coveredLine"><pre>			REQUIRE(soma_string("\n1,1\n") != -1);</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>			CHECK(soma_string(",1\n") == -1);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>16</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
-    <td align="left" class="src coveredLine"><pre>      REQUIRE(soma_string("\n\n1,1\n") != -1);</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>			CHECK(soma_string("1,,1\n") == -1);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>17</pre></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>			REQUIRE(soma_string("1,\n1,1\n,1,1,1\n") != -1);</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>			CHECK(soma_string(",\n") == -1);</pre></td>
     </tr>
 
     <tr>
@@ -394,157 +394,241 @@
 
     <tr>
     <td align="right" class="lineno"><pre>19</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>60</pre></td>
-    <td align="left" class="src coveredLine"><pre>		SECTION("Numero antes e depois de todo delimitador") {</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>20</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
-    <td align="left" class="src coveredLine"><pre>			REQUIRE(soma_string("1,\n") == -1);</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>21</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
-    <td align="left" class="src coveredLine"><pre>			REQUIRE(soma_string(",1\n") == -1);</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>22</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
-    <td align="left" class="src coveredLine"><pre>			REQUIRE(soma_string("1,,1\n") == -1);</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>23</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
-    <td align="left" class="src coveredLine"><pre>			REQUIRE(soma_string(",\n") == -1);</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>24</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>10</pre></td>
-    <td align="left" class="src coveredLine"><pre>			SECTION("\\n sao ignorados na contagem") {</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>25</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
-    <td align="left" class="src coveredLine"><pre>				REQUIRE(soma_string("1\n\n\n,1\n") != -1);</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>26</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
-    <td align="left" class="src coveredLine"><pre>				REQUIRE(soma_string("1\n\n\n,\n\n\n1\n") != -1);</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>27</pre></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>			}</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>28</pre></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>		}</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>29</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>60</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>8</pre></td>
     <td align="left" class="src coveredLine"><pre>		SECTION("Numero eh positivo") {</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>30</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
-    <td align="left" class="src coveredLine"><pre>			REQUIRE(soma_string("-1\n") == -1);</pre></td>
+    <td align="right" class="lineno"><pre>20</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>			CHECK(soma_string("-1\n") == -1);</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>31</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
-    <td align="left" class="src coveredLine"><pre>			REQUIRE(soma_string("1,-1\n") == -1);</pre></td>
+    <td align="right" class="lineno"><pre>21</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>			CHECK(soma_string("1,-1\n") == -1);</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>32</pre></td>
+    <td align="right" class="lineno"><pre>22</pre></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>		}</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>33</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>60</pre></td>
-    <td align="left" class="src coveredLine"><pre>    SECTION("Numero pode ter mais de um algarismo"){</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>34</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
-    <td align="left" class="src coveredLine"><pre>      REQUIRE(soma_string("11\n") != -1);</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>35</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
-    <td align="left" class="src coveredLine"><pre>      REQUIRE(soma_string("111\n") != -1);</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>36</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
-    <td align="left" class="src coveredLine"><pre>      REQUIRE(soma_string("1000\n") != -1);</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>37</pre></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>    }</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>38</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>60</pre></td>
-    <td align="left" class="src coveredLine"><pre>		SECTION("Numero eh menor ou igual a 1000"){</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>39</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
-    <td align="left" class="src coveredLine"><pre>			CHECK(soma_string("1001\n") == -1);</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>40</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
-    <td align="left" class="src coveredLine"><pre>			CHECK(soma_string("10000\n") == -1);</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>41</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>5</pre></td>
-    <td align="left" class="src coveredLine"><pre>			CHECK(soma_string("1000\n") != -1);</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>42</pre></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>		}</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>43</pre></td>
+    <td align="right" class="lineno"><pre>23</pre></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>	}</pre></td>
     </tr>
 
     <tr>
+    <td align="right" class="lineno"><pre>24</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>14</pre></td>
+    <td align="left" class="src coveredLine"><pre>  SECTION("Delimitador variavel") {</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>25</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>    CHECK(soma_string("1@1\n") == -1);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>26</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>    CHECK(soma_string("[@]1@1\n") == -1);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>27</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>    CHECK(soma_string("[@]\n1@1\n") == -1);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>28</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>    CHECK(soma_string("/[@]\n1@1\n") == -1);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>29</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>    CHECK(soma_string("//[@]1@1\n") == -1);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>30</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>  }</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>31</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>14</pre></td>
+    <td align="left" class="src coveredLine"><pre>  SECTION("Operação de soma") {</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>32</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>4</pre></td>
+    <td align="left" class="src coveredLine"><pre>  	SECTION("Casos positivos para os testes anteriores") {</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>33</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>	  	CHECK(soma_string("\n") == 0);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>34</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>  		CHECK(soma_string("1\n") == 1);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>35</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>  		CHECK(soma_string("1,1,1\n") == 3);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>36</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>  		CHECK(soma_string("\n1,1\n") == 2);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>37</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>  		CHECK(soma_string("\n\n1,1\n") == 2);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>38</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>  		CHECK(soma_string("1\n,1,1\n") == 3);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>39</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>  		CHECK(soma_string("1,\n1,1\n,1,1,1\n") == 6);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>40</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>  		CHECK(soma_string("1\n\n\n,1\n") == 2);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>41</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>  		CHECK(soma_string("1\n\n\n,\n\n\n1\n") == 2);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>42</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>	    CHECK(soma_string("11\n") == 11);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>43</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>	    CHECK(soma_string("111\n") == 111);</pre></td>
+    </tr>
+
+    <tr>
     <td align="right" class="lineno"><pre>44</pre></td>
-    <td align="right" class="linecount coveredLine"><pre>45</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>	    CHECK(soma_string("1000\n") == 1000);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>45</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>	    CHECK(soma_string("//[@]\n1@1\n") == 2);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>46</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>	    CHECK(soma_string("//[#]\n1#1\n") == 2);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>47</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>	    CHECK(soma_string("//[-]\n1-1\n") == 2);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>48</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>	    CHECK(soma_string("//[@@]\n1@@1\n") == 2);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>49</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>	    CHECK(soma_string("//[@@@]\n1@@@1\n") == 2);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>50</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>  	}</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>51</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>4</pre></td>
+    <td align="left" class="src coveredLine"><pre>    SECTION("Numero maiores que 1000 sao ignorados") {</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>52</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>      CHECK(soma_string("1001\n") == 0);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>53</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>      CHECK(soma_string("1,1001\n") == 1);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>54</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>      CHECK(soma_string("1,\n1001\n") == 1);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>55</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>      CHECK(soma_string("1001,\n1001\n") == 0);</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>56</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>    }</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>57</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>  }</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>58</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>10</pre></td>
     <td align="left" class="src coveredLine"><pre>}</pre></td>
     </tr>
 
