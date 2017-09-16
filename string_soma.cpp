@@ -16,11 +16,15 @@ int soma_string(const char *string_entrada) {
 	return 0;
 }
 
-bool valida_enter_final(char *entrada, int tamanho) {
+bool valida_enter_final(const char *string_entrada, int tamanho) {
+  char entrada[100]; 
+  strcpy(entrada, string_entrada);
   if (entrada[tamanho-1] != '\n') return false; //enter no final
   return true;
 }
-int contaDelimitadores(char *entrada, char *delimitador) {
+int conta_delimitadores(const char *string_entrada, char *delimitador) {
+  char entrada[100]; 
+  strcpy(entrada, string_entrada);
   char *temp;
   int delimitadores = 0;
   temp = strpbrk(entrada, delimitador);
@@ -30,72 +34,63 @@ int contaDelimitadores(char *entrada, char *delimitador) {
   }
   return delimitadores;
 }
-int contaNumeros(char *entrada, char *delimitador) {
-  char *temp;
+int conta_numeros(const char *string_entrada, char *delimitador) {
+  char entrada[100]; 
+  strcpy(entrada, string_entrada);
   int numeros = 0;
-  temp = strtok(entrada, delimitador);
-    while (temp != NULL) {
-      ++numeros;
-      temp = strtok(NULL, delimitador);
-    }
+  char *temp = entrada;
+  if (entrada[strlen(entrada)-1] == '\n')
+    if (entrada[strlen(entrada)-2] == ',') --numeros;
+  while (strtok_r(temp, delimitador, &temp)) {
+    ++numeros;
+  }
   return numeros;
 }
-bool valida_numero(char *entrada, char *delimitador) {
-  printf("\n###entrada-->%s<--\n", entrada);
-  char *linha, *cols;
-  int count;
-  linha = strtok(entrada, "\n");
-  while (linha != NULL) {
-    printf("hue\n");
-    count = 0;
-    cols = strpbrk(linha, delimitador);
-    printf("###cols-->%s<--\n", cols);
-    while (cols != NULL) {
-      ++count;
-      cols = strpbrk(cols+1, delimitador);  //proximo numero
-    }
-    printf("###count-->%i<--\n", count);
-    if (count > 3) return false;
-    linha = strtok(NULL, "\n");  //proxima linha
-  }
-  return true;
-}
-bool valida_delimitador(char *entrada, char *delimitador) {
+bool valida_delimitador(const char *string_entrada, char *delimitador) {
+  char entrada[100]; 
+  strcpy(entrada, string_entrada);  
   if (strpbrk(entrada, delimitador)) {  //se nao existem delimitadores na entrada
-    int delimitadores = contaDelimitadores(entrada, delimitador);
-    int numeros = contaNumeros(entrada, delimitador);
+    int delimitadores = conta_delimitadores(entrada, delimitador);
+    int numeros = conta_numeros(entrada, delimitador);
     if (!(delimitadores+1 == numeros)) return false;
   }
   return true;
 }
-// bool valida_numero_positivo(char *entrada) {
-//   printf("\nENTRADAFUNC->%s<-\n", entrada);
-//   if (strpbrk(entrada, "-")) return false;
-//   return true;
-// }
+bool valida_numero(const char *string_entrada, char *delimitador) {
+  char entrada[100];
+  int numero = 0;
+  strcpy(entrada, string_entrada);
+  char *linha = entrada;
+  char *temp;
+  while ((temp = strtok_r(linha, "\n", &linha))) {
+    numero = conta_numeros(temp, delimitador);
+    if (numero > 3) return false;
+  }
+  return true;
+}
 bool valida_numero_positivo(const char *string_entrada) {
   char entrada[100]; 
   strcpy(entrada, string_entrada);
   if (strpbrk(entrada, "-")) return false;
   return true;
 }
-bool valida_tamanho_numero(char *entrada, char *delimitador) {
-  char *temp;
-  temp = strtok(entrada, strcat(delimitador, "\n"));
-  while (temp != NULL) {
-    if (atoi(temp) > 1000) return false;
-    temp = strtok(NULL, delimitador);
+bool valida_tamanho_numero(const char *string_entrada, char *delimitador) {
+  char entrada[100]; 
+  strcpy(entrada, string_entrada);
+  char *temp = entrada;
+  char *buff;
+  while ((buff = strtok_r(temp, delimitador, &temp))) {
+    if (atoi(buff) > 1000) return false;
   }
   return true;
 }
 bool valida_entrada(const char *string_entrada, char *delimitador) {
-  char entrada[100]; 
   int tamanho = strlen(string_entrada);
-  strcpy(entrada, string_entrada);
-  if (!valida_enter_final(entrada, tamanho)) return false; //check
-  if (!valida_numero(entrada, delimitador)) return false;
-  if (!valida_delimitador(entrada, delimitador)) return false;
+  
+  if (!valida_enter_final(string_entrada, tamanho)) return false; //check
+  if (!valida_numero(string_entrada, delimitador)) return false;
+  if (!valida_delimitador(string_entrada, delimitador)) return false;
   if (!valida_numero_positivo(string_entrada)) return false;
-  if (!valida_tamanho_numero(entrada, delimitador)) return false;
+  if (!valida_tamanho_numero(string_entrada, delimitador)) return false;
   return true;
 }

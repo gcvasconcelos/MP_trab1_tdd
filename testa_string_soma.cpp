@@ -18,7 +18,7 @@ TEST_CASE("Calculadora simples de soma", "[calculadora][soma]") {
 			CHECK(soma_string("1,\n1,1\n,1,1,1\n") != -1);
 		}
 		SECTION("Numero antes e depois de todo delimitador") {
-			CHECK(soma_string("1,\n") == -1);
+			REQUIRE(soma_string("1,\n") == -1);
 			CHECK(soma_string(",1\n") == -1);
 			CHECK(soma_string("1,,1\n") == -1);
 			CHECK(soma_string(",\n") == -1);
