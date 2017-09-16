@@ -10,7 +10,7 @@ else
 TARGET = testa_soma_string_stdin
 OBJECTS = obj/string_soma.o obj/testa_soma_string_stdin.o
 HEADERS = 
-FLAGS = -g -Wall -Wextra -Weffc++ 
+FLAGS = -g -Wall -Wextra -Weffc++
 endif
 
 obj/%.o: %.cpp $(HEADERS)
