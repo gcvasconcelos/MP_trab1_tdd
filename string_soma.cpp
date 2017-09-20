@@ -5,36 +5,36 @@
 
 /**
  * @brief Verifica '\n' necessários na entrada.
- * @params string_entrada é a entrada a ser analisada.
- * @return true se é válido.
+ * @params String_entrada é a entrada a ser analisada.
+ * @return True se é válido.
  */
 bool valida_enter(const char *string_entrada) {
-  char *entrada = strdup(string_entrada);  /**< copia entrada para string que pode ser manipulada. */
+  char *entrada = strdup(string_entrada);  ///< Copia entrada para string que pode ser manipulada.
   /** 
-   * '\n' no final da string. 
+   * '\\n' no final da string. 
    */
   if (entrada[strlen(string_entrada)-1] != '\n') return false;
   /**
    * Se entrada tiver delimitador customizado, este deve ser definido em uma linha separada. Ex:
-   * entrada = "//[!]\n1\n"
-   * temp == "]\n1\n"
+   * entrada = "//[!]\\n1\\n"
+   * temp == "]\\n1\\n"
    */
   if (entrada[0] == '/') {
-    char *temp = strrchr(entrada, ']');  /**< resto da string a partir de ']'. */
+    char *temp = strrchr(entrada, ']');  ///< Resto da string a partir de ']'. 
     if (temp[1] != '\n') return false;
   }
   return true;
 }
 /**
  * @brief Conta o número de delimitadores na entrada.
- * @params string_entrada é a entrada a ser analisada.
- * @params delimitador é auto-explicativo.
- * @return número de delimitadores.
+ * @params String_entrada é a entrada a ser analisada.
+ * @params Delimitador é auto-explicativo.
+ * @return Número de delimitadores.
  */
 int conta_delimitadores(const char *string_entrada, char *delimitador) {
-  char *entrada = strdup(string_entrada);  /**< copia entrada para string que pode ser manipulada. */
+  char *entrada = strdup(string_entrada);  ///< Copia entrada para string que pode ser manipulada. 
   int delimitadores = 0;
-  char *temp = strpbrk(entrada, delimitador);  /**< primeira ocorrência do delimitador na string. */
+  char *temp = strpbrk(entrada, delimitador);  ///< Primeira ocorrência do delimitador na string. 
   /**
    * Conta todas as ocorrências do delimitador na string.
    */
@@ -50,12 +50,12 @@ int conta_delimitadores(const char *string_entrada, char *delimitador) {
 }
 /**
  * @brief Conta o número de números na string de entrada, de delimitador a delimitador.
- * @params string_entrada é a entrada a ser analisada.
- * @params delimitador é auto-explicativo.
- * @return número de números.
+ * @params String_entrada é a entrada a ser analisada.
+ * @params Delimitador é auto-explicativo.
+ * @return Número de números.
  */
 int conta_numeros(const char *string_entrada, char *delimitador) {
-  char *entrada = strdup(string_entrada);  /**< copia entrada para string que pode ser manipulada. */
+  char *entrada = strdup(string_entrada);  ///< Copia entrada para string que pode ser manipulada. 
   int numeros = 0;
   char *temp = entrada;
   /**
@@ -66,12 +66,12 @@ int conta_numeros(const char *string_entrada, char *delimitador) {
 }
 /**
  * @brief Verifica validez do delimitador na entrada.
- * @params string_entrada é a entrada a ser analisada.
- * @params delimitador é auto-explicativo.
- * @return true se válido.
+ * @params String_entrada é a entrada a ser analisada.
+ * @params Delimitador é auto-explicativo.
+ * @return True se válido.
  */
 bool valida_delimitador(const char *string_entrada, char *delimitador) {
-  char *entrada = strdup(string_entrada);  /**< copia entrada para string que pode ser manipulada. */
+  char *entrada = strdup(string_entrada);  ///< Copia entrada para string que pode ser manipulada. 
   /**
    * Se não existe delimitador, é válido.
    */
@@ -79,7 +79,7 @@ bool valida_delimitador(const char *string_entrada, char *delimitador) {
   int delimitadores = conta_delimitadores(entrada, delimitador);
   int numeros = conta_numeros(entrada, delimitador);
   /**
-   * Como o número de números é contado a partir do numero de delimitadores, a entrada inválida i.e. "1,\n" contaria 2 números.
+   * Como o número de números é contado a partir do numero de delimitadores, a entrada inválida i.e. "1,\\n" contaria 2 números.
    * Por isso, deve-se decrementar 1 número da quantidade total, para corrigir esse erro.
    */
   if (entrada[strlen(entrada)-1] == '\n') {
@@ -87,11 +87,11 @@ bool valida_delimitador(const char *string_entrada, char *delimitador) {
   }
   /**
    * Retorna falso:
-   * entrada = "1,,1\n"
+   * entrada = "1,,1\\n"
    * delimitadores == 2
    * numeros == 2
    * Retorna verdadeiro:
-   * entrada = "1,1\n"
+   * entrada = "1,1\\n"
    * delimitadores == 1
    * numeros == 2
    */
@@ -104,12 +104,12 @@ bool valida_delimitador(const char *string_entrada, char *delimitador) {
 }
 /**
  * @brief Verifica validez do número.
- * @params string_entrada é a entrada a ser analisada.
- * @params delimitador é auto-explicativo.
- * @return true se válido.
+ * @params String_entrada é a entrada a ser analisada.
+ * @params Delimitador é auto-explicativo.
+ * @return True se válido.
  */
 bool valida_numero(const char *string_entrada, char *delimitador) {
-  char *entrada = strdup(string_entrada);  /**< copia entrada para string que pode ser manipulada. */
+  char *entrada = strdup(string_entrada);  ///< Copia entrada para string que pode ser manipulada. 
   int numero = 0;
   char *linha = entrada;
   char *temp;
@@ -124,16 +124,16 @@ bool valida_numero(const char *string_entrada, char *delimitador) {
 }
 /**
  * @brief Verifica validez da entrada.
- * @params string_entrada é a entrada a ser analisada.
- * @params delimitador é auto-explicativo.
- * @return true se válido.
+ * @params String_entrada é a entrada a ser analisada.
+ * @params Delimitador é auto-explicativo.
+ * @return True se válido.
  */
 bool valida_entrada(const char *string_entrada, char *delimitador) {
   /**
    * Se não segue as regras de validez, retorna falso.
-   * @see valida_enter
-   * @see valida_numero
-   * @see valida_delimitador
+   * @see valida_enter()
+   * @see valida_numero()
+   * @see valida_delimitador()
    */
   if (!valida_enter(string_entrada)) return false;
   if (!valida_numero(string_entrada, delimitador)) return false;
@@ -142,14 +142,14 @@ bool valida_entrada(const char *string_entrada, char *delimitador) {
 }
 /**
  * @brief Retorna o delimitador a ser usado na entrada
- * @params string_entrada é a entrada a ser analisada
- * @return delimitador (default ',' ou o definido na entrada) ou NULL
+ * @params String_entrada é a entrada a ser analisada
+ * @return Delimitador (default ',' ou o definido na entrada) ou NULL
  */
 char *retorna_delimitador(const char *string_entrada) {
-  char *entrada = strdup(string_entrada);  /**< copia entrada para string que pode ser manipulada. */
+  char *entrada = strdup(string_entrada);  ///< Copia entrada para string que pode ser manipulada. 
 
-  unsigned int comeco = strspn(entrada, "//[");  //**< índice de onde a entrada comeca a ficar diferente do formato "//[", ou seja, 3. Se não acha o formato, retorna entre 0 e 2. */
-  unsigned int fim = strcspn(entrada, "]");  //**< índice de onde a entrada fica igual ao char "]". Se não acha o char, é igual ao tamanho da string */
+  unsigned int comeco = strspn(entrada, "//[");  ///< Índice de onde a entrada comeca a ficar diferente do formato "//[", ou seja, 3. Se não acha o formato, retorna entre 0 e 2. 
+  unsigned int fim = strcspn(entrada, "]");  ///< Índice de onde a entrada fica igual ao char "]". Se não acha o char, é igual ao tamanho da string 
   /**
    * Se o começo é igual a 3 (entrada segue o formato "//[") e o fim não é igual tamanho da entrada (o colchete é fechado), o usuário quer definir um novo delimitador.
    * Se o começo é igual a 0 (entrada com delimitador padrão) e o fim é igual ao tamanho da string (não acha colchete fechado).
@@ -175,8 +175,8 @@ char *retorna_delimitador(const char *string_entrada) {
 }
 /**
  * @brief Recebe uma string, valida-a e faz a operação de soma
- * @params string_entrada é a entrada a ser analisada
- * @return resultado da soma
+ * @params String_entrada é a entrada a ser analisada
+ * @return Resultado da soma
  */
 int soma_string(const char *string_entrada) {
   char *delimitador_atual;
@@ -188,11 +188,11 @@ int soma_string(const char *string_entrada) {
    * Checa se a entrada é valida
    */
   if (!valida_entrada(string_entrada, delimitador_atual)) return -1;
-  char *entrada = strdup(string_entrada);  /**< copia entrada para string que pode ser manipulada. */
+  char *entrada = strdup(string_entrada);  ///< Copia entrada para string que pode ser manipulada. 
   char *temp;
   int resultado = 0;
   /**
-   * Captura tudo que não seja "[]/\n" e delimitador da entrada, ou seja, os números.
+   * Captura tudo que não seja "[]/\\n" e delimitador da entrada, ou seja, os números.
    * Os números estarão como string, então, são convertidos para inteiro e são somados.
    */
   while ((temp = strtok_r(entrada, 

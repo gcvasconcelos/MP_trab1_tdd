@@ -8,9 +8,14 @@
  */
 
 int main() {
-  char entrada[100];
+  char entrada[100], ch;
+  unsigned int i = 0;
   int resultado;
-  scanf("%s", entrada);
+  while ((ch = getchar()) != EOF) {
+    entrada[i] = ch;
+    ++i;
+  }
+  entrada[i] = '\0';
   resultado = soma_string(entrada);
   printf("%d\n", resultado);
 	return 0;
