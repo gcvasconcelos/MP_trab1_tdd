@@ -1,3 +1,7 @@
+Link para o repositório no git: https://github.com/gcvasconcelos/MP_trab1_tdd
+
+---
+
 # Trabalho de Métodos de Programação
 
 O objetivo deste trabalho é utilizar o desenvolvimento orientado a testes (TDD) para fazer uma calculadora que utiliza uma string como entrada para fazer a soma dos termos separados por um delimitador. 
@@ -33,7 +37,7 @@ A descrição dos testes e o que passar nestes testes significa está presente n
 O motivo da separação dos arquivos testa_config.cpp e testa_string_soma.cpp está explicado no corpo do arquivo testa_config.cpp.
 A documentação do resto do código está no documento html gerado pelo Doxygen e está na pasta dowygen_hmtl/
 
-## Makefile
+## Compilação
 
 O makefile possui uma condicional que separa o módulo de testes (make TESTE=1) e o módulo de produção (make). Existe também uma regra 'make gcov' que gera os arquivos do gcov.
 
